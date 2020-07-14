@@ -14,7 +14,7 @@
       </template>
     </a-col>
     <a-col :span="8" class="tool-head-right">
-      <a-button>查看流程图</a-button>
+      <!-- <a-button>查看流程图</a-button> -->
       <a-button @click="()=>{ $emit('exportXML') }">导出XML</a-button>
     </a-col>
   </a-row>

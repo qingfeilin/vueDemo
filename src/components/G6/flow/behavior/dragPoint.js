@@ -18,6 +18,7 @@ export default function (G6) {
       }
     },
     onDragStart (e) {
+      console.log('controlPoint:dragstart')
       const node = e.target.getParent().getParent().get('item')
       const anchorIndex = e.item.get('index')
       this.target = e.item
@@ -30,6 +31,7 @@ export default function (G6) {
       this.graph.set('edgeDragging', true)
     },
     onDrag (e) {
+      console.log('controlPoint:drag')
       if (!this.origin) {
         return
       }
@@ -83,6 +85,7 @@ export default function (G6) {
       }
     },
     onDragEnd (e) {
+      console.log('controlPoint:onDragEnd')
       if (!this.origin) {
         return
       }

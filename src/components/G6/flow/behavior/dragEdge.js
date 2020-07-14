@@ -22,6 +22,7 @@ export default function (G6) {
       }
     },
     onDragEnter (e) {
+      // console.log('anchor:onDragEnter')
       if (!this.origin) {
         return
       }
@@ -32,6 +33,7 @@ export default function (G6) {
       }
     },
     onDragLeave (e) {
+      // console.log('anchor:onDragLeave')
       if (!this.origin) {
         return
       }
@@ -42,6 +44,7 @@ export default function (G6) {
       }
     },
     onDragStart (e) {
+      // console.log('anchor:dragstart')
       const node = e.target.getParent().getParent().get('item')
       const anchorIndex = e.item.get('index')
       const point = node.getAnchorPoints()[anchorIndex]
@@ -69,12 +72,14 @@ export default function (G6) {
       this.graph.set('edgeDragging', true)
     },
     onDrag (e) {
+      // console.log('anchor:onDrag')
       if (!this.origin) {
         return
       }
       this._updateEdge(this.target, e)
     },
     onDragEnd (e) {
+      // console.log('anchor:onDragEnd')
       if (!this.origin) {
         return
       }
@@ -93,6 +98,7 @@ export default function (G6) {
       return e.target instanceof Marker && e.target.getParent() && e.target.getParent().getParent().get('item').get('id') === this.origin.sourceNode.get('id')
     },
     dragEdgeBeforeShowAnchorBySub (subProcessNode) {
+      // console.log('dragEdgeBeforeShowAnchorBySub')
       const group = subProcessNode.getContainer()
       group.nodes.forEach(a => {
         const aGroup = a.getContainer()
@@ -101,6 +107,7 @@ export default function (G6) {
       })
     },
     dragEdgeBeforeShowAnchor (e) {
+      // console.log('dragEdgeBeforeShowAnchor')
       const sourceGroupId = this.origin.sourceNode.getModel().groupId
       this.graph.getNodes().forEach(node => {
         if (node.getModel().clazz === 'start' ||

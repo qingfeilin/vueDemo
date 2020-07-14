@@ -65,7 +65,9 @@
             }
 
             for (let d of data.nodes) {
+                if (!d.type && d.clazz) {
                 d.type = getShapeName(d.clazz)
+                }
             }
 
             let plugins = []

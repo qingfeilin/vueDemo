@@ -181,6 +181,7 @@ class Command {
       execute: function (graph) {
         const manager = cmdPlugin.get('_command')
         const cmd = manager.queue[manager.current - 1]
+        debugger
         if (cmd) {
           cmd.executeTimes++
           cmd.back(graph)

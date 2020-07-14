@@ -66,9 +66,11 @@ const nodeDefinition = {
       })
     }
     group.getAnchor = (i) => {
+      debugger
       return group.anchorShapes.filter(a => a.get('index') === i)
     }
     group.clearAnchor = () => {
+      // debugger
       group.anchorShapes && group.anchorShapes.forEach(a => a.remove())
       group.anchorShapes = []
     }

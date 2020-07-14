@@ -204,7 +204,6 @@
           // console.log(this.graph.save())
         },
         handelAdd (model) {
-          debugger
           this.graph.addItem('node', model)
           // console.log(this.graph.save())
         },

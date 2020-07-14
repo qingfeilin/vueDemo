@@ -36,7 +36,6 @@ export default {
   watch: {
     '$store.scene.addComponentType': {
       handler () {
-        debugger
       }
     }
   }

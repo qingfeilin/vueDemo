@@ -34,9 +34,11 @@ export default class Anchor extends Item {
     this.getKeyShape().toFront()
   }
   setActived () {
+    console.log('setActived')
     this.update({ style: { ...editorStyle.anchorPointHoverStyle } })
   }
   clearActived () {
+    console.log('clearActived')
     this.update({ style: { ...editorStyle.anchorPointStyle } })
   }
   setHotspotActived (act) {

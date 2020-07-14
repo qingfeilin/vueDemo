@@ -41,7 +41,6 @@ export default {
     '$store.state.scene.onDeleteContainerKey': {
       handler (key) {
         if (key) {
-          debugger
           this.$refs[key]
         } else {
           this.$store.dispatch('onContainerDelete', '')

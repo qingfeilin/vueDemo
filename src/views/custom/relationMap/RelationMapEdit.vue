@@ -167,7 +167,6 @@
           }
           let item = this.$refs.relationMap.updateItem(this.editModel)
           console.log('item', item)
-          debugger
         }
       }
   }

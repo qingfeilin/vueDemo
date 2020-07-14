@@ -98,7 +98,6 @@ export default {
     handleComponentConfig () {
       let sceneConfig = _.cloneDeep(this.sceneConfig)
       _.set(sceneConfig, 'page.container', [_.cloneDeep(this.containerConfig)])
-      debugger
       this.$store.dispatch('onComponentConfig', sceneConfig)
     }
   }

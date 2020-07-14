@@ -21,9 +21,15 @@ export default function (G6) {
         setState (name, value, item) {
           if (name === 'active-anchor') {
             if (value) {
+              // console.log('hoverTrue', { style: { ...editorStyle.anchorPointHoverStyle } }, item)
+              // console.log('setState', name, value, item)
               this.update({ style: { ...editorStyle.anchorPointHoverStyle } }, item)
+              // console.log('hoverTrueq', item)
             } else {
+              // console.log('hoverFalse', { style: { ...editorStyle.anchorPointStyle } })
+              // console.log('setState', name, value, item)
               this.update({ style: { ...editorStyle.anchorPointStyle } }, item)
+              // console.log('hoverFalse2', item)
             }
           }
         }

@@ -16,6 +16,7 @@ export default function (G6) {
       }
     },
     onMouseMove (e) {
+      // console.log('canvas:mousemove')
       if (this.graph.get('addNodeDragging')) {
         let delegateShape = this.graph.get('addDelegateShape')
         const addModel = this.graph.get('addModel')
@@ -44,7 +45,7 @@ export default function (G6) {
       }
     },
     onMouseUp (e) {
-      debugger
+      // console.log('canvas:onMouseUp')
       if (this.graph.get('addNodeDragging')) {
         const p = this.graph.getPointByClient(e.clientX, e.clientY)
         const subProcessNode = this.graph.find('node', (node) => {
@@ -100,6 +101,7 @@ export default function (G6) {
       }
     },
     onMouseLeave (e) {
+      // console.log('canvas:onMouseLeave')
       if (this.graph.get('addNodeDragging')) {
         this._clearDelegate()
       }

@@ -8,9 +8,11 @@ export default function (G6) {
       }
     },
     onAnchorEnter (e) {
+      // console.log('anchor:mouseenter')
       if (!this.graph.get('edgeDragging')) { this.graph.setItemState(e.item, 'active-anchor', true) }
     },
     onAnchorLeave (e) {
+      // console.log('anchor:mouseleave')
       if (!this.graph.get('edgeDragging')) {
         let node = e.item.getContainer().getParent()
         if (node) {

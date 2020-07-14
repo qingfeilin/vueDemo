@@ -71,7 +71,7 @@
   line-height: 120px;
 }
 #components-layout-demo-basic .ant-layout-content {
-  /* background: rgba(16, 142, 233, 1); */
+  background: rgb(255, 255, 255);
   color: #fff;
   min-height: 120px;
   line-height: 120px;
