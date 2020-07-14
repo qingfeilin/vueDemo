@@ -334,6 +334,28 @@ export const asyncRouterMap = [
             ]
           }
         ]
+      },
+      // custom
+      {
+        path: '/custom',
+        name: 'customPage',
+        component: PageView,
+        meta: { title: '自定义组件', icon: 'block', permission: [ 'dashboard' ] },
+        redirect: '/other/icon-selector',
+        children: [
+          {
+            path: '/custom/relation-map-edit',
+            name: 'RelationMapEdit',
+            component: () => import('@/views/custom/relationMap/RelationMapEdit'),
+            meta: { title: '关系图设计器', icon: 'cluster', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/flow-designer1',
+            name: 'flow-designer1',
+            component: () => import('@/views/custom/flow/FlowDesigner'),
+            meta: { title: '流程编辑器', icon: 'cluster', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+        ]
       }
     ]
   },
@@ -351,6 +373,12 @@ export const asyncRouterMap = [
     name: 'scene-designer',
     component: () => import('@/views/dataview/SceneDesigner'),
     meta: { title: '场景设计页', keepAlive: true }
+  },
+  {
+    path: '/flow-designer',
+    name: 'flow-designer',
+    component: () => import('@/views/custom/flow/FlowDesigner'),
+    meta: { title: '流程编辑器', keepAlive: true }
   },
   {
     path: '/component-editor',
