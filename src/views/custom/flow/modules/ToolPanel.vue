@@ -2,19 +2,20 @@
   <a-row>
     <a-col :span="16" class="tool-head-left">
       <template v-for="(item,index) of optGroupList">
-        <a-tooltip v-for="(mitem, mindex) of item.memuList" :key="mindex">
+        <a-tooltip v-for="(mitem, mindex) of item.memuList" :key="'' + index + mindex">
           <template slot="title">
             {{ mitem.label }}
           </template>
-          <span class="icon-menu">
-            <a-icon :type="mitem.icon" />
+          <span class="icon-menu flow-toolbar-menu" :data-command="mitem.type">
+            <a-icon :type="mitem.icon"/>
           </span>
         </a-tooltip>
         <a-divider type="vertical" v-if="index+1 != optGroupList.length" :key="index"/>
       </template>
     </a-col>
-    <a-col :span="8">
-      按钮
+    <a-col :span="8" class="tool-head-right">
+      <a-button>查看流程图</a-button>
+      <a-button @click="()=>{ $emit('exportXML') }">导出XML</a-button>
     </a-col>
   </a-row>
 </template>
@@ -30,7 +31,7 @@
                             {
                                 icon: 'undo',
                                 label: '撤销',
-                                type: 'redo'
+                                type: 'undo'
                             },
                             {
                                 icon: 'redo',
@@ -49,7 +50,7 @@
                             {
                                 icon: 'snippets',
                                 label: '粘贴',
-                                type: 'pase'
+                                type: 'paste'
                             },
                             {
                                 icon: 'delete',
@@ -63,22 +64,22 @@
                             {
                                 icon: 'zoom-in',
                                 label: '放大',
-                                type: 'copy'
+                                type: 'zoomIn'
                             },
                             {
                                 icon: 'zoom-out',
                                 label: '缩小',
-                                type: 'pase'
+                                type: 'zoomOut'
                             },
                             {
                                 icon: 'border-inner',
                                 label: '实际大小',
-                                type: 'delete'
+                                type: 'resetZoom'
                             },
                             {
                                 icon: 'border-outer',
                                 label: '适应屏幕',
-                                type: 'delete'
+                                type: 'autoFit'
                             }
                         ]
                     },
@@ -87,12 +88,12 @@
                             {
                                 icon: 'vertical-align-top',
                                 label: '移到上一层',
-                                type: 'up'
+                                type: 'toFront'
                             },
                             {
                                 icon: 'vertical-align-bottom',
                                 label: '移到下一层',
-                                type: 'down'
+                                type: 'toBack'
                             }
                         ]
                     }
@@ -106,9 +107,16 @@
         text-align: left;
         font-size: 18px;
     }
+    .tool-head-right{
+        text-align: right;
+    }
+    .tool-head-right > button{
+        margin: 0 5px;
+    }
     .icon-menu {
         margin: 0 5px;
         padding: 3px 10px;
+        border-radius: 3px;
         border: 1px solid #FFF;
     }
     .icon-menu:hover {

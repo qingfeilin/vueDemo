@@ -11,13 +11,25 @@
     import CanvasPanel from './flow/plugins/canvasPanel'
     import Toolbar from './flow/plugins/toolbar'
     import Command from './flow/plugins/command'
+    import { exportXML } from './flow/util/bpmn'
 
     export default {
         name: 'GviewPanel',
         data () {
             return {
                 graph: null,
-                cmdPlugin: null
+                cmdPlugin: null,
+                state: {
+                    selectedModel: {},
+                    processModel: {
+                        id: '',
+                        name: '',
+                        clazz: 'process',
+                        dataObjs: [],
+                        signalDefs: [],
+                        messageDefs: []
+                    }
+                }
             }
         },
         methods: {
@@ -26,6 +38,9 @@
             },
             graphEmit (type, e) {
                 this.graph.emit(type, e)
+            },
+            exportXML (createFile = true) {
+                exportXML(this.graph.save(), this.state.processModel, createFile)
             },
             paint () {
             const data = {

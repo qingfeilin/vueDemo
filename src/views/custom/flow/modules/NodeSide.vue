@@ -134,13 +134,13 @@ export default {
                       label: '消息节点',
                       icon: require('@/assets/flow/message-catch.svg'),
                       clazz: 'messageEvent',
-                      model: { clazz: 'messageEvent', size: '50*30', label: '' }
+                      model: { clazz: 'messageCatch', size: '50*30', label: '' }
                   },
                   {
                       label: '信号节点',
                       icon: require('@/assets/flow/signal-catch.svg'),
                       clazz: 'signalEvent',
-                      model: { clazz: 'signalEvent', size: '50*30', label: '' }
+                      model: { clazz: 'signalCatch', size: '50*30', label: '' }
                   }
               ]
           },
@@ -151,7 +151,7 @@ export default {
                       label: '结束事件',
                       icon: require('@/assets/flow/end.svg'),
                       clazz: 'endEvent',
-                      model: { clazz: 'endEvent', size: '30*30', label: '' }
+                      model: { clazz: 'end', size: '30*30', label: '' }
                   }
               ]
           }
@@ -160,8 +160,7 @@ export default {
   },
   methods: {
     handleDragStart (e, model) {
-        console.log('handleDragStart')
-        debugger
+        console.log('handleDragStart', model)
         e.dataTransfer.setDragImage(this.ghost, 0, 0)
         this.$emit('handleDragStart', e, model)
     },

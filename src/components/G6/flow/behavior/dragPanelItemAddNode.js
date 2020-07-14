@@ -44,6 +44,7 @@ export default function (G6) {
       }
     },
     onMouseUp (e) {
+      debugger
       if (this.graph.get('addNodeDragging')) {
         const p = this.graph.getPointByClient(e.clientX, e.clientY)
         const subProcessNode = this.graph.find('node', (node) => {

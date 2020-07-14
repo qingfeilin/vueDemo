@@ -2,7 +2,7 @@
   <div id="components-layout-demo-basic">
     <a-layout>
       <a-layout-header>
-        <tool-panel/>
+        <tool-panel @exportXML="exportXML"/>
       </a-layout-header>
       <a-layout>
         <a-layout-sider theme="light">
@@ -37,16 +37,18 @@
         }
     },
     methods: {
+      exportXML () {
+        this.$refs.gviewPanel.exportXML()
+      },
       handleDragStart (e, addModel) {
         this.$refs.gviewPanel.graphSetVel('addNodeDragging', true)
-        debugger
         this.$refs.gviewPanel.graphSetVel('addModel', addModel)
       },
       handleDragEnd (e) {
         this.$refs.gviewPanel.graphEmit('canvas:mouseup', e)
         this.$refs.gviewPanel.graphSetVel('addNodeDragging', false)
         this.$refs.gviewPanel.graphSetVel('addModel', null)
-      },
+      }
     }
 }
 </script>

@@ -17,6 +17,7 @@ class Toolbar {
   }
 
   initPlugin (graph) {
+    debugger
     const self = this
     this.set('graph', graph)
     const events = self.getEvents()
@@ -37,9 +38,11 @@ class Toolbar {
   }
 
   initEvents () {
+    debugger
     const graph = this.get('graph')
     const parentNode = this.get('container')
-    const children = parentNode.querySelectorAll('div > span[data-command]')
+    // const children = parentNode.querySelectorAll('div > span[data-command]')
+    const children = document.getElementsByClassName('flow-toolbar-menu')
     each(children, (child, i) => {
       const cmdName = child.getAttribute('data-command')
       child.addEventListener('click', e => {
